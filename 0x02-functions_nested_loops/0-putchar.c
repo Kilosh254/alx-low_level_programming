@@ -1,17 +1,19 @@
-#include "main.h"
+#include "main.h";
 /**
- * main - Entry point
+ * main - Prints putchar
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 int main(void)
 {
-char joy[9] = "_putchar";
-int i;
-for (i = 0; i < 8; i = i + 1)
-{
-_putchar(joy[i]);
-}
+_putchar('_');
+_putchar('p');
+_putchar('u');
+_putchar('t');
+_putchar('c');
+_putchar('h');
+_putchar('a');
+_putchar('r');
 _putchar('\n');
 return (0);
 }
