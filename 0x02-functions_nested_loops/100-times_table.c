@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * print_times_table - Entry point
  * @n: input
@@ -6,5 +7,5 @@
  */
 void print_times_table(int n)
 {
-return (0);
+		return (0);
 }
