@@ -21,6 +21,7 @@ b++;
 if (a <= b)
 {
 lim = a;
+}
 else
 {
 lim = b;
