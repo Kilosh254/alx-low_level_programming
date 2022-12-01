@@ -1,49 +1,35 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - ...
- * @head: ...
- * @idx: ...
- * @n: ...
- * Return: ...
+ * delete_nodeint_at_index - Deletes the node at a given
+ * index of a listint_t list.
+ * @head: A pointer to the address of the
+ *  head of the listint_t list.
+ * @index: The index of the node to be deleted - indices start at 0.
+ * Return: On success - 1.
+ *  On failure - -1.
  */
 
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-listint_t *new_node, *iter;
-unsigned int count = 1;
-
-if (head)
+listint_t *tmp, *copy = *head;
+unsigned int node;
+if (copy == NULL)
+return (-1);
+if (index == 0)
 {
-new_node = malloc(sizeof(listint_t));
-if (new_node == NULL)
-return (NULL);
-new_node->n = n;
-if (idx > 0)
-{
-iter = *head;
-while (iter)
-{
-if (count == idx)
-{
-new_node->next = iter->next;
-iter->next = new_node;
-return (new_node);
+*head = (*head)->next;
+free(copy);
+return (1);
 }
-iter = iter->next;
-count++;
-}
-if (idx > count)
-return (NULL);
-}
-else
+for (node = 0; node < (index - 1); node++)
 {
-new_node->next = *head;
-*head = new_node;
+if (copy->next == NULL)
+return (-1);
+copy = copy->next;
 }
-return (new_node);
-}
-return (NULL);
+tmp = copy->next;
+copy->next = tmp->next;
+free(tmp);
+return (1);
 }
