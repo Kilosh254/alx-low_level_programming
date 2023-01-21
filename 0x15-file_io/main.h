@@ -1,5 +1,5 @@
-#ifndef _FILE_IO_
-#define _FILE_IO_
+#ifndef MAIN_H 
+#define MAIN_H_
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -14,4 +14,4 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 void copy_file(const char *src, const char *dest);
 
-#endif
+#endif /* MAIN_H */
