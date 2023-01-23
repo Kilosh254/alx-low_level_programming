@@ -2,47 +2,44 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - array
- * @s1: pointers
- * @s2: pointers
- * @n: Variable
- * Return: value
+ * string_nconcat - ...
+ * @s1: ...
+ * @s2: ...
+ * @n: ...
+ * Return: ...
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-unsigned int i, x, j, e, d, m;
-char *a;
+unsigned int i = 0, j = 0, k = 0, l = 0;
+char *str;
 if (s1 == NULL)
-{
 s1 = "";
-}
 if (s2 == NULL)
-{
 s2 = "";
-}
-for (i = 0; s1[i] != '\0'; i++)
-{
-for (x = 0; s2[x] != '\0'; x++)
-{
-if (x < n)
-d++;
-}
-a = malloc((i + n + 1) * sizeof(char));
-if (a == NULL)
-{
+while (s1[i])
+i++;
+while (s2[k])
+k++;
+if (n >= k)
+l = i + k;
+else
+l = i + n;
+str = malloc(sizeof(char) * l + 1);
+if (str == NULL)
 return (NULL);
-}
-for (j = 0; j < i; j++)
+k = 0;
+while (j < l)
 {
-a[j] = s1[j];
-}
-m = 0;
-for (e = 0; e < n; e++)
+if (j <= i)
+str[j] = s1[j];
+if (j >= i)
 {
-a[e + j] = s2[m];
-m++;
+str[j] = s2[k];
+k++;
 }
-a[e + j] = '\0';
-return (a);
+j++;
+}
+str[j] = '\0';
+return (str);
 }
